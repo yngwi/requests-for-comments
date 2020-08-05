@@ -8,6 +8,7 @@ ENV SCALE=5
 
 RUN apk update && apk upgrade && apk add --no-cache \
     bash \
+    dos2unix \
     git \
     python \
     py-pip \ 
@@ -28,6 +29,8 @@ RUN npm install mermaid @mermaid-js/mermaid-cli
 RUN pip install git+https://github.com/time-machine-project/pandoc-mermaid-filter.git
 
 COPY ./convert_to_pdf.sh /opt/script/
+
+RUN dos2unix /opt/script/convert_to_pdf.sh
 
 RUN chmod +x /opt/script/convert_to_pdf.sh
 

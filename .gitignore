@@ -2,6 +2,8 @@
 .vscode
 .devcontainer
 output
+.vim
+tmp
 
 # Files
 *.pdf
