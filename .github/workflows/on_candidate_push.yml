@@ -26,8 +26,8 @@ jobs:
     - name: Create the andidate pdfs
       run: docker run -e VERSION=${{ env.VERSION }} -v $GITHUB_WORKSPACE/files/drafts:/opt/input -v $GITHUB_WORKSPACE/candidates:/opt/output time-machine-project/publish_pdfs
 
-    - name: Zip the release pdfs
-      run: zip -r -j candidates.zip releases
+    - name: Zip the candidate pdfs
+      run: zip -r -j candidates.zip candidates
     
     - name: Create a new release
       id: create_release
