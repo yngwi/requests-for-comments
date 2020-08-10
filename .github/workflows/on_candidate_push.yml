@@ -27,7 +27,7 @@ jobs:
       run: docker run -e VERSION=${{ env.VERSION }} -v $GITHUB_WORKSPACE/files/candidates:/opt/input -v $GITHUB_WORKSPACE/candidates:/opt/output time-machine-project/publish_pdfs
 
     - name: Zip the candidate pdfs
-      run: zip -r -j candidates.zip candidates
+      run: zip -r -j candidate_pdf_files.zip candidates
     
     - name: Create a new release
       id: create_release
@@ -47,6 +47,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./candidates.zip
-        asset_name: candidates.zip
+        asset_path: ./candidate_pdf_files.zip
+        asset_name: candidate_pdf_files.zip
         asset_content_type: application/zip
