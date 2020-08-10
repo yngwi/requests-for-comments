@@ -1,4 +1,4 @@
-FROM pandoc/latex:latest
+FROM pandoc/latex:2.9.2.1
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PATH="/data/node_modules/.bin:/usr/lib/chromium:${PATH}"
